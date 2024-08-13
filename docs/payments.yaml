@@ -1,0 +1,73 @@
+openapi: 3.0.1
+info:
+  title: Payment API
+  description: APIs for handling payments through Stripe
+  version: '1.0'
+servers:
+  - url: http://{environment}/api
+    variables:
+      environment:
+        default: localhost:8000
+        enum:
+          - localhost:8000
+          - dev.booksapi.com
+          - prod.booksapi.com
+paths:
+  /payment/create-payment-intent:
+    post:
+      operationId: create-payment-intent
+      description: Creates a payment intent with Stripe
+      requestBody:
+        description: Payment details for creating a payment intent
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PaymentIntentRequest'
+      responses:
+        200:
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaymentIntentResponse'
+        400:
+          description: Invalid input
+          content:
+            application/json:
+              schema:
+                type: object
+                $ref: '#/components/schemas/Error'
+
+components:
+  schemas:
+    PaymentIntentRequest:
+      type: object
+      properties:
+        amount:
+          type: integer
+          description: Amount to be charged in cents
+        currency:
+          type: string
+          description: Currency code (e.g., usd)
+        paymentMethodId:
+          type: string
+          description: Payment method ID provided by Stripe
+        description:
+          type: string
+          description: Description of the payment
+
+    PaymentIntentResponse:
+      type: object
+      properties:
+        clientSecret:
+          type: string
+          description: Client secret used for completing the payment
+
+    Error:
+      type: object
+      properties:
+        code:
+          type: string
+        message:
+          type: string

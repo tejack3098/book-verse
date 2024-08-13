@@ -1,0 +1,19 @@
+meta {
+  name: Payment
+  type: http
+  seq: 1
+}
+
+post {
+  url: http://localhost:3000/payments
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "orderId": "213",
+    "customerId": "23421421",
+    "paymentAmount": 1200
+  }
+}

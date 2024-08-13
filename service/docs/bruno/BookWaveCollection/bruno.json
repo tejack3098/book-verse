@@ -1,0 +1,9 @@
+{
+  "version": "1",
+  "name": "BookWaveCollection",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ]
+}

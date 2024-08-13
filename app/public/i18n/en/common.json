@@ -1,0 +1,46 @@
+{
+
+
+    "app.header": "Welcome to Bookverse",
+    "app.description": "Your one-stop shop for all your favorite books!",
+    "app.start": "Start Shopping",
+    "app.why": "Why choose us?",
+    "app.wide": "Wide range of books from various genres",
+    "app.exclusive": "Exclusive deals and offers",
+    "app.fast": "Fast and secure delivery",
+    "app.explore": "Explore Books",
+    "app.details": "Details",
+    "app.Books": "Books",
+    "app.cart": "Cart",
+    "app.orderHistory": "Order History",
+    "app.chat": "AI Chat",
+    "app.signout": "Signout",
+    "app.profile": "Profile",
+    "app.author": "Author",
+    "app.pages": "Pages",
+    "app.rating": "Rating",
+    "app.pricing": "Pricing",
+    "app.learn": "Learn More",
+    "app.country": "Country",
+    "app.year": "Year",
+    "app.add": "Add to Cart",
+    "app.quantity": "Quantity",
+    "app.remove": "Remove",
+    "app.total": "Total",
+    "app.clear": "Clear Cart",
+    "app.checkout": "Checkout",
+    "search.placeholder":"Search Books",
+    "app.recommendations": "Similar Books",
+    "app.share": "Share"
+
+
+   
+    
+
+
+
+
+
+
+       
+}

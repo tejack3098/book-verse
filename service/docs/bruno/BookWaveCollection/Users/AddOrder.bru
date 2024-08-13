@@ -1,0 +1,34 @@
+meta {
+  name: AddOrder
+  type: http
+  seq: 3
+}
+
+post {
+  url: http://localhost:3000/orders
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+      "orderId": "o10001",
+      "userId": "u12345",
+      "tax": 5.0,
+      "total": 55.0,
+      "shipping": 5.0,
+      "items": [
+        {
+          "bookId": "b12345",
+          "quantity": 2,
+          "priceperunit": 20.0
+        },
+        {
+          "bookId": "b67890",
+          "quantity": 1,
+          "priceperunit": 10.0
+        }
+      ],
+      "deliveryDate": "2024-08-10"
+    }
+}

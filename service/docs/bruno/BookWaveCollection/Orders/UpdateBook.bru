@@ -1,0 +1,27 @@
+meta {
+  name: UpdateBook
+  type: http
+  seq: 3
+}
+
+put {
+  url: http://localhost:3000/books/66ae25b2e0482541829db16a
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "isbn": "978-3-16-148410-0",
+      "title": "The Great Tejack",
+      "description": "Roaring Twenties.",
+      "averageRating": 4.4,
+      "author": "F. Scott Fitzgerald",
+      "numberOfPages": "110",
+      "language": "English",
+      "publisher": "66abff327502565e2b7564dd",
+      "format": "Hardcover",
+      "link": "https://example.com/great-gatsby",
+      "pricePerUnit": "$10.99"
+    }
+}

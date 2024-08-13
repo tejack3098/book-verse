@@ -1,0 +1,32 @@
+/* styles.css */
+.chat-window {
+    max-height: 400px;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.message {
+    margin-bottom: 10px;
+}
+
+.message.user {
+    text-align: right;
+    color: blue;
+}
+
+.message.ai {
+    text-align: left;
+    color: green;
+}
+
+input[type="text"] {
+    width: 80%;
+    padding: 8px;
+    margin-right: 5px;
+}
+
+button {
+    padding: 8px 16px;
+}

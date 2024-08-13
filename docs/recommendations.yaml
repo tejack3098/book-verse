@@ -1,0 +1,87 @@
+openapi: 3.0.1
+info:
+  title: Recommendations API
+  description: APIs for fetching book recommendations
+  version: '1.0'
+servers:
+  - url: http://{environment}/api
+    variables:
+      environment:
+        default: localhost:8000
+        enum:
+          - localhost:8000
+          - dev.booksapi.com
+          - prod.booksapi.com
+paths:
+  /recommendations:
+    get:
+      operationId: get-recommendations
+      description: Retrieves book recommendations based on the user's cart
+      responses:
+        200:
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: array
+                items: 
+                  $ref: '#/components/schemas/Book'
+        401:
+          description: Unauthorized
+  /recommendations/{isbn}:
+    get:
+      operationId: get-book-recommendations
+      description: Retrieves book recommendations based on a specific book
+      parameters:
+        - name: isbn
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: array
+                items: 
+                  $ref: '#/components/schemas/Book'
+        401:
+          description: Unauthorized
+
+components:
+  schemas:
+    Book:
+      type: object
+      properties:
+        title:
+          type: string
+        description:
+          type: string
+        isbn:
+          type: string
+        averageRating:
+          type: number
+        author:
+          type: string
+        numberOfPages:
+          type: string
+        language:
+          type: string
+        publisher:
+          type: string
+        format:
+          type: string
+        link:
+          type: string
+        pricePerUnit:
+          type: number
+
+    Error:
+      type: object
+      properties:
+        code:
+          type: string
+        message:
+          type: string

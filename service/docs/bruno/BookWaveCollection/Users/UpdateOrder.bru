@@ -1,0 +1,30 @@
+meta {
+  name: UpdateOrder
+  type: http
+  seq: 4
+}
+
+put {
+  url: http://localhost:3000/orders/66aea08fb073ab63e0eef649
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "orderId": "o10002",
+    "userId": "u67890",
+    "tax": 2,
+    "total": 22,
+    "shipping": 2,
+    "items": [
+      {
+        "bookId": "b98765",
+        "quantity": 1,
+        "priceperunit": 10,
+        "_id": "66aea08fb073ab63e0eef64b"
+      }
+    ],
+    "deliveryDate": "2024-08-15"
+  }
+}

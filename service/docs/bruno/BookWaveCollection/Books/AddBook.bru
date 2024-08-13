@@ -1,0 +1,27 @@
+meta {
+  name: AddBook
+  type: http
+  seq: 2
+}
+
+post {
+  url: http://localhost:3000/books
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+      "isbn": "978-3-16-148410-0",
+      "title": "The Great Gatsby",
+      "description": "A novel set in the Roaring Twenties.",
+      "averageRating": 4.4,
+      "author": "F. Scott Fitzgerald",
+      "numberOfPages": "180",
+      "language": "English",
+      "publisher": "66abff327502565e2b7564dd",
+      "format": "Hardcover",
+      "link": "https://example.com/great-gatsby",
+      "pricePerUnit": "$10.99"
+    }
+}

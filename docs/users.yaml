@@ -1,0 +1,131 @@
+openapi: 3.0.1
+info:
+  title: User Management API
+  description: APIs for managing users
+  version: '1.0'
+servers:
+  - url: http://{environment}/api
+    variables:
+      environment:
+        default: localhost:8000
+        enum:
+          - localhost:8000
+          - dev.booksapi.com
+          - prod.booksapi.com
+paths:
+  /users:
+    get:
+      operationId: get-users
+      description: Retrieves all users (Admin only)
+      responses:
+        200:
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/User'
+        403:
+          description: Forbidden
+
+  /users/{userId}:
+    get:
+      operationId: get-user
+      description: Retrieves a single user by ID (Admin only)
+      parameters:
+        - name: userId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        403:
+          description: Forbidden
+
+  /auth/login:
+    post:
+      operationId: login
+      description: Login endpoint for authentication
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+                password:
+                  type: string
+      responses:
+        200:
+          description: Login successful
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  token:
+                    type: string
+        401:
+          description: Unauthorized
+
+  /auth/register:
+    post:
+      operationId: register
+      description: Register a new user
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+                email:
+                  type: string
+                password:
+                  type: string
+      responses:
+        201:
+          description: User registered successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        400:
+          description: Invalid input
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+components:
+  schemas:
+    User:
+      type: object
+      properties:
+        id:
+          type: string
+        username:
+          type: string
+        email:
+          type: string
+        role:
+          type: string  # 'admin' or 'user'
+
+    Error:
+      type: object
+      properties:
+        code:
+          type: string
+        message:
+          type: string

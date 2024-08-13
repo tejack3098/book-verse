@@ -1,0 +1,107 @@
+openapi: 3.0.1
+info:
+  title: Orders API
+  description: APIs for managing orders
+  version: '1.0'
+servers:
+  - url: http://{environment}/api
+    variables:
+      environment:
+        default: localhost:8000
+        enum:
+          - localhost:8000
+          - dev.booksapi.com
+          - prod.booksapi.com
+paths:
+  /orders:
+    get:
+      operationId: get-orders
+      description: Retrieves all orders (Admin only)
+      responses:
+        200:
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: array
+                items: 
+                  $ref: '#/components/schemas/Order'
+        403:
+          description: Forbidden
+
+    post:
+      operationId: create-order
+      description: Creates a new order
+      requestBody:
+        description: Order details
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Order'
+      responses:
+        201:
+          description: Order created successfully
+        400:
+          description: Invalid input
+
+  /orders/{orderId}:
+    get:
+      operationId: get-order
+      description: Retrieves a single order by ID (Admin only)
+      parameters:
+        - name: orderId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Order'
+        403:
+          description: Forbidden
+
+components:
+  schemas:
+    OrderItem:
+      type: object
+      properties: 
+        bookId:
+          type: string
+        quantity:
+          type: integer
+        price:
+          type: number
+
+    Order:
+      type: object 
+      properties:
+        orderId:
+          type: string
+        userId:
+          type: string
+        total:
+          type: number
+        tax:
+          type: number
+        shipping:
+          type: number
+        orderItems:
+          type: array
+          items:
+            $ref: '#/components/schemas/OrderItem'
+        deliveryDate:
+          type: string
+          format: date-time
+
+    Error:
+      type: object
+      properties:
+        code:
+          type: string
+        message:
+          type: string

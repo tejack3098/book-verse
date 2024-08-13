@@ -1,0 +1,271 @@
+openapi: 3.0.1
+info:
+  title: Books API
+  description: APIs for managing books in the web portal
+  version: '1.0'
+servers:
+  - url: http://{environment}/api
+    variables:
+      environment:
+        default: localhost:8000
+        enum:
+          - localhost:8000
+          - dev.booksapi.com
+          - prod.booksapi.com
+paths:
+  /books:
+    get:
+      operationId: get-books
+      description: Retrieves all books
+      responses:
+        200:
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Book'
+        400:
+          description: Invalid Input
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    post:
+      operationId: create-book
+      description: Creates a new book
+      requestBody:
+        description: Book object that needs to be added to the store
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Book'
+      responses:
+        201:
+          description: Book created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Book'
+        400:
+          description: Invalid Input
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /books/{isbn}:
+    get:
+      operationId: get-book
+      description: Retrieves a single book by ISBN
+      parameters:
+        - name: isbn
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Book'
+        400:
+          description: Invalid Input
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    put:
+      operationId: update-book
+      description: Updates an existing book
+      parameters:
+        - name: isbn
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: Book object that needs to be updated in the store
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Book'
+      responses:
+        200:
+          description: Book updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Book'
+        400:
+          description: Invalid Input
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    delete:
+      operationId: delete-book
+      description: Deletes a book by ISBN
+      parameters:
+        - name: isbn
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        204:
+          description: Book deleted successfully
+        400:
+          description: Invalid Input
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /books/{isbn}/reviews:
+    get:
+      operationId: get-book-reviews
+      description: Retrieves reviews for a specific book
+      parameters:
+        - name: isbn
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/BookReview'
+        400:
+          description: Invalid Input
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    post:
+      operationId: create-book-review
+      description: Posts a new review for a specific book
+      parameters:
+        - name: isbn
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: Review object that needs to be added for the book
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateBookReview'
+      responses:
+        201:
+          description: Review created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BookReview'
+        400:
+          description: Invalid Input
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+components:
+  schemas:
+    Book:
+      type: object
+      properties:
+        title:
+          type: string
+        description:
+          type: string
+        isbn:
+          type: string
+        averageRating:
+          type: number
+        author:
+          type: string
+        numberOfPages:
+          type: string
+        language:
+          type: string
+        publisher:
+          type: string
+        format:
+          type: string
+        link:
+          type: string
+        pricePerUnit:
+          type: number
+
+    BookReview:
+      type: object
+      properties:
+        user_id:
+          type: string
+        isbn:
+          type: string
+        review_id:
+          type: string
+        rating:
+          type: integer
+        review_text:
+          type: string
+        date_added:
+          type: string
+        date_updated:
+          type: string
+        read_at:
+          type: string
+        started_at:
+          type: string
+        n_votes:
+          type: integer
+        n_comments:
+          type: integer
+
+    CreateBookReview:
+      type: object
+      properties:
+        user_id:
+          type: string
+        isbn:
+          type: string
+        review_id:
+          type: string
+        rating:
+          type: integer
+        review_text:
+          type: string
+        date_added:
+          type: string
+        date_updated:
+          type: string
+        read_at:
+          type: string
+        started_at:
+          type: string
+        n_votes:
+          type: integer
+        n_comments:
+          type: integer
+
+    Error:
+      type: object
+      properties:
+        error:
+          type: object
+          properties:
+            code:
+              type: string
+            message:
+              type: string

@@ -25,7 +25,7 @@ https://docs.google.com/presentation/d/1rcBi-DzF0ayfemTZ9Awfa8dGTgQfK9_E/edit?us
 
 You can watch the recording of our project demo by clicking [here](https://drive.google.com/file/d/1ssNyhSrPa3bH7C8auMq8GcVSEw5RPDe2/view?usp=sharing) or by navigating to the below URL:
 ```
-https://docs.google.com/presentation/d/1rcBi-DzF0ayfemTZ9Awfa8dGTgQfK9_E/edit?usp=sharing&ouid=118092754478269317391&rtpof=true&sd=true
+https://drive.google.com/file/d/1ssNyhSrPa3bH7C8auMq8GcVSEw5RPDe2/view?usp=sharing
 ```
 
 ## Team Members:

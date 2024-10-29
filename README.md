@@ -15,17 +15,17 @@ BookVerse is an e-book store featuring a sophisticated recommendation system. Le
 - Internationalization: Multi-Language Support to allow users to interact with the platform in their preferred language
 - Progressive Web Application: It’s a PWA which caches content and is Installable to local System just like a Native Application
 
-
 ## Project Demo
+
+View the Presentation PPT by clicking [here](https://docs.google.com/presentation/d/1rcBi-DzF0ayfemTZ9Awfa8dGTgQfK9_E/edit?usp=sharing&ouid=112954252480575632889&rtpof=true&sd=true) or by navigating to the below URL:
+```
+https://northeastern-my.sharepoint.com/:p:/r/personal/sabnavisu_s_northeastern_edu/Documents/Presentation.pptx?d=w647e5c7fee454d39a4fd3231f1411ee8&csf=1&web=1&e=HZaJ2d](https://docs.google.com/presentation/d/1rcBi-DzF0ayfemTZ9Awfa8dGTgQfK9_E/edit?usp=sharing&ouid=112954252480575632889&rtpof=true&sd=true)
+```
+
 
 You can watch the recording of our project demo by clicking [here](https://drive.google.com/file/d/1ssNyhSrPa3bH7C8auMq8GcVSEw5RPDe2/view?usp=sharing) or by navigating to the below URL:
 ```
 [https://northeastern-my.sharepoint.com/:v:/r/personal/choudhari_t_northeastern_edu/Documents/Recordings/final_project_data_knights.mp4?csf=1&web=1&e=a59nIk&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D](https://drive.google.com/file/d/1ssNyhSrPa3bH7C8auMq8GcVSEw5RPDe2/view?usp=sharing
-```
-
-View the Presentation PPT by clicking [here](https://docs.google.com/presentation/d/1rcBi-DzF0ayfemTZ9Awfa8dGTgQfK9_E/edit?usp=sharing&ouid=112954252480575632889&rtpof=true&sd=true) or by navigating to the below URL:
-```
-https://northeastern-my.sharepoint.com/:p:/r/personal/sabnavisu_s_northeastern_edu/Documents/Presentation.pptx?d=w647e5c7fee454d39a4fd3231f1411ee8&csf=1&web=1&e=HZaJ2d
 ```
 
 ## Team Members:
